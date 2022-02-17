@@ -27,7 +27,8 @@ public class ServicioActualizarSolicitudGuarderia {
 
     public Facturacion ejecutar(SolicitudGuarderia solicitudGuarderia) {
         validarExistenciaPrevia(solicitudGuarderia);
-        Facturacion facturacion = calcularDescuentosCostosFacturacion(solicitudGuarderia);
+        List<DtoSolicitudGuarderia> dtoSolicitudGuarderia = this.daoSolicitudGuarderia.listarPorIdPropietario(solicitudGuarderia.getIdPropietario());
+        Facturacion facturacion = calcularDescuentosCostosFacturacion(solicitudGuarderia, dtoSolicitudGuarderia);
         this.repositorioSolicitudGuarderia.actualizar(solicitudGuarderia);
         return facturacion;
     }
@@ -39,10 +40,9 @@ public class ServicioActualizarSolicitudGuarderia {
         }
     }
 
-    private Facturacion calcularDescuentosCostosFacturacion(SolicitudGuarderia solicitudGuarderia){
+    public Facturacion calcularDescuentosCostosFacturacion(SolicitudGuarderia solicitudGuarderia, List<DtoSolicitudGuarderia> dtoSolicitudGuarderia){
         int contador = 0;
         int posicionRegistro = 0;
-        List<DtoSolicitudGuarderia> dtoSolicitudGuarderia = this.daoSolicitudGuarderia.listarPorIdPropietario(solicitudGuarderia.getIdPropietario());
         for (DtoSolicitudGuarderia solicitud:dtoSolicitudGuarderia) {
             if(solicitud.getId().equals(solicitudGuarderia.getId())){
                 posicionRegistro = contador;
