@@ -205,8 +205,8 @@ class ComandoControladorSolicitudGuarderiaTest {
     }
 
     @Test
-    @DisplayName("Deberia actualizar un usuario")
-    void deberiaActualizarUnUsuarioyRecalcularFactura() throws Exception{
+    @DisplayName("Deberia actualizar un usuario y recalcular factura sin decuento")
+    void deberiaActualizarUnUsuarioyRecalcularFacturaSinDescuento() throws Exception{
         // arrange
         Long id = 1L;
         String str = "2022-03-03 11:30:40";
@@ -216,6 +216,13 @@ class ComandoControladorSolicitudGuarderiaTest {
         ComandoSolicitudGuarderia solicitudGuarderia = new ComandoSolicitudGuarderiaTestDataBuilder()
                 .conIdPropietario (1234l)
                 .conTipoAnimal("GATO")
+                .conFechaIngreso(dateTime)
+                .conDiasEstadia(3L)
+                .build();
+
+        ComandoSolicitudGuarderia solicitudGuarderia2 = new ComandoSolicitudGuarderiaTestDataBuilder()
+                .conIdPropietario (1234l)
+                .conTipoAnimal("PERRO")
                 .conFechaIngreso(dateTime)
                 .conDiasEstadia(3L)
                 .build();
@@ -230,6 +237,53 @@ class ComandoControladorSolicitudGuarderiaTest {
                 .andExpect(jsonPath("$.valor.valorDiaRegular", is(35000.0)))
                 .andExpect(jsonPath("$.valor.valorDiaFDS", is(40250.0)))
                 .andExpect(jsonPath("$.valor.valorFacturado", is(110250.0)))
+                .andReturn();
+    }
+
+    @Test
+    @DisplayName("Deberia actualizar un usuario y recalcular factura con descuento")
+    void deberiaActualizarUnUsuarioyRecalcularFacturaConDescuento() throws Exception{
+        // arrange
+        Long id = 2L;
+        String str = "2022-03-03 17:00:00";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+
+        ComandoSolicitudGuarderia solicitudGuarderia = new ComandoSolicitudGuarderiaTestDataBuilder()
+                .conIdPropietario (1234l)
+                .conTipoAnimal("PERRO")
+                .conFechaIngreso(dateTime)
+                .conDiasEstadia(4L)
+                .build();
+
+        ComandoSolicitudGuarderia solicitudGuarderia2 = new ComandoSolicitudGuarderiaTestDataBuilder()
+                .conIdPropietario (1234l)
+                .conTipoAnimal("PERRO")
+                .conFechaIngreso(dateTime)
+                .conDiasEstadia(2L)
+                .build();
+
+        mocMvc.perform(post("/registro/crear")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(solicitudGuarderia2)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.valor.descuento", is(true)))
+                .andExpect(jsonPath("$.valor.diasEstadia", is(2)))
+                .andExpect(jsonPath("$.valor.valorDiaRegular", is(29400.0)))
+                .andExpect(jsonPath("$.valor.valorDiaFDS", is(33810.0)))
+                .andExpect(jsonPath("$.valor.valorFacturado", is(58800.0)))
+                .andReturn();
+
+        // act - assert
+        mocMvc.perform(put("/registro/actualizar/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(solicitudGuarderia)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.valor.descuento", is(true)))
+                .andExpect(jsonPath("$.valor.diasEstadia", is(4)))
+                .andExpect(jsonPath("$.valor.valorDiaRegular", is(29400.0)))
+                .andExpect(jsonPath("$.valor.valorDiaFDS", is(33810.0)))
+                .andExpect(jsonPath("$.valor.valorFacturado", is(126420.0)))
                 .andReturn();
     }
 
