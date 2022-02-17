@@ -5,7 +5,7 @@ import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.servicio.testdatabuilder.SolicitudGuarderiaTestDataBuilder;
-import com.ceiba.solicitudGuarderia.modelo.entidad.SolicitudGuarderia;
+import com.ceiba.solicitudguarderia.modelo.entidad.SolicitudGuarderia;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

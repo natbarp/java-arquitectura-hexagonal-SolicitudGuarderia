@@ -1,10 +1,10 @@
 package com.ceiba.configuracion;
 
-import com.ceiba.solicitudGuarderia.puerto.dao.DaoSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.servicio.ServicioActualizarSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.servicio.ServicioCrearSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.servicio.ServicioEliminarSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.puerto.dao.DaoSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.servicio.ServicioActualizarSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.servicio.ServicioCrearSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.servicio.ServicioEliminarSolicitudGuarderia;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

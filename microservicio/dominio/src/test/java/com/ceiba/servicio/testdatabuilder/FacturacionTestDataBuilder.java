@@ -1,6 +1,6 @@
 package com.ceiba.servicio.testdatabuilder;
 
-import com.ceiba.solicitudGuarderia.modelo.entidad.Facturacion;
+import com.ceiba.solicitudguarderia.modelo.entidad.Facturacion;
 
 public class FacturacionTestDataBuilder {
 

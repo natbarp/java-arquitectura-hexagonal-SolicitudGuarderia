@@ -1,6 +1,6 @@
 package com.ceiba.servicio.testdatabuilder;
 
-import com.ceiba.solicitudGuarderia.modelo.entidad.SolicitudGuarderia;
+import com.ceiba.solicitudguarderia.modelo.entidad.SolicitudGuarderia;
 
 import java.time.LocalDateTime;
 

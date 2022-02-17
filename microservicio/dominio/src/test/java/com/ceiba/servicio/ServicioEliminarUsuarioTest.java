@@ -2,8 +2,8 @@ package com.ceiba.servicio;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.solicitudGuarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.servicio.ServicioEliminarSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.servicio.ServicioEliminarSolicitudGuarderia;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

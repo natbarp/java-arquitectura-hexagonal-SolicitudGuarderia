@@ -2,11 +2,11 @@ package com.ceiba.servicio;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.solicitudGuarderia.modelo.entidad.SolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.puerto.dao.DaoSolicitudGuarderia;
-import com.ceiba.solicitudGuarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.modelo.entidad.SolicitudGuarderia;
+import com.ceiba.solicitudguarderia.puerto.dao.DaoSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.puerto.repositorio.RepositorioSolicitudGuarderia;
 import com.ceiba.servicio.testdatabuilder.SolicitudGuarderiaTestDataBuilder;
-import com.ceiba.solicitudGuarderia.servicio.ServicioActualizarSolicitudGuarderia;
+import com.ceiba.solicitudguarderia.servicio.ServicioActualizarSolicitudGuarderia;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
