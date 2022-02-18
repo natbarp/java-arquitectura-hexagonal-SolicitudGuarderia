@@ -44,7 +44,11 @@ public class ServicioCrearUsuarioTest {
         Facturacion facturacion = servicioCrearSolicitudGuarderia.ejecutar(solicitudGuarderia);
 
         //- assert
-        assertEquals(facturacionDefault,facturacion);
+        assertEquals(facturacionDefault.getDescuento(),facturacion.getDescuento());
+        assertEquals(facturacionDefault.getValorDiaRegular(),facturacion.getValorDiaRegular());
+        assertEquals(facturacionDefault.getValorDiaFDS(),facturacion.getValorDiaFDS());
+        assertEquals(facturacionDefault.getDiasEstadia(),facturacion.getDiasEstadia());
+        assertEquals(facturacionDefault.getValorFacturado(),facturacion.getValorFacturado());
         Mockito.verify(repositorioSolicitudGuarderia, Mockito.times(1)).crear(solicitudGuarderia);
     }
 }

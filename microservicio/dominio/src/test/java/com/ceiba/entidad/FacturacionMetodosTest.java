@@ -33,7 +33,7 @@ public class FacturacionMetodosTest {
                 .conId(2L).conDiasEstadia(4L).conTipoAnimal("GATO").conFechaIngreso(dateTime).build();
         Facturacion facturacionDefault = new FacturacionTestDataBuilder().conDescuento(true).
                 conDiasEstadia(4l).conValorDiaRegular(34300.0).conValorDiaFDS(39445.0).conValorFacturado(147490.0).build();
-        List<DtoSolicitudGuarderia> dtoSolicitudesGuarderia = new ArrayList<DtoSolicitudGuarderia>();
+        List<DtoSolicitudGuarderia> dtoSolicitudesGuarderia = new ArrayList<>();
 
         dtoSolicitudesGuarderia.add(new DtoSolicitudGuarderia(solicitudGuarderia.getId(),
                 solicitudGuarderia.getNombrePropietario(),
@@ -53,7 +53,11 @@ public class FacturacionMetodosTest {
         Facturacion facturacion = factura.calcularDescuentosCostosFacturacion(solicitudGuarderia2,dtoSolicitudesGuarderia);
 
         //- assert
-        assertEquals(facturacionDefault,facturacion);
+        assertEquals(facturacionDefault.getDescuento(),facturacion.getDescuento());
+        assertEquals(facturacionDefault.getValorDiaRegular(),facturacion.getValorDiaRegular());
+        assertEquals(facturacionDefault.getValorDiaFDS(),facturacion.getValorDiaFDS());
+        assertEquals(facturacionDefault.getDiasEstadia(),facturacion.getDiasEstadia());
+        assertEquals(facturacionDefault.getValorFacturado(),facturacion.getValorFacturado());
     }
 
     @Test
@@ -75,7 +79,11 @@ public class FacturacionMetodosTest {
         Facturacion facturacion = factura.calcularDescuentosCostosFacturacion(solicitudGuarderia,0L);
 
         //- assert
-        assertEquals(facturacionDefault,facturacion);
+        assertEquals(facturacionDefault.getDescuento(),facturacion.getDescuento());
+        assertEquals(facturacionDefault.getValorDiaRegular(),facturacion.getValorDiaRegular());
+        assertEquals(facturacionDefault.getValorDiaFDS(),facturacion.getValorDiaFDS());
+        assertEquals(facturacionDefault.getDiasEstadia(),facturacion.getDiasEstadia());
+        assertEquals(facturacionDefault.getValorFacturado(),facturacion.getValorFacturado());
     }
 
     @Test

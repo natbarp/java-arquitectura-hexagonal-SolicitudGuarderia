@@ -57,46 +57,4 @@ public class ServicioActualizarUsuarioTest {
         //assert
         Mockito.verify(repositorioSolicitudGuarderia,Mockito.times(1)).actualizar(solicitudGuarderia);
     }
-
-//    @Test
-//    @DisplayName("Deberia calcular datos de facturacion y retonar objeto de tipo facturacion")
-//    void deberiaCalcularDatosFacturacionYRetornarObjetoFacturacion() {
-//        // arrange
-//        String str = "2022-03-03 17:00:00";
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
-//
-//        SolicitudGuarderia solicitudGuarderia = new SolicitudGuarderiaTestDataBuilder()
-//                .conId(1L).conDiasEstadia(4L).conTipoAnimal("GATO").conFechaIngreso(dateTime).build();
-//        SolicitudGuarderia solicitudGuarderia2 = new SolicitudGuarderiaTestDataBuilder()
-//                .conId(2L).conDiasEstadia(4L).conTipoAnimal("GATO").conFechaIngreso(dateTime).build();
-//        Facturacion facturacionDefault = new FacturacionTestDataBuilder().conDescuento(true).
-//                conDiasEstadia(4l).conValorDiaRegular(34300.0).conValorDiaFDS(39445.0).conValorFacturado(147490.0).build();
-//        List<DtoSolicitudGuarderia> dtoSolicitudesGuarderia = new ArrayList<DtoSolicitudGuarderia>();
-//
-//        dtoSolicitudesGuarderia.add(new DtoSolicitudGuarderia(solicitudGuarderia.getId(),
-//                solicitudGuarderia.getNombrePropietario(),
-//                solicitudGuarderia.getIdPropietario(),
-//                solicitudGuarderia.getTipoAnimal(),
-//                solicitudGuarderia.getFechaIngreso(),
-//                solicitudGuarderia.getDiasEstadia()));
-//        dtoSolicitudesGuarderia.add(new DtoSolicitudGuarderia(solicitudGuarderia2.getId(),
-//                solicitudGuarderia2.getNombrePropietario(),
-//                solicitudGuarderia2.getIdPropietario(),
-//                solicitudGuarderia2.getTipoAnimal(),
-//                solicitudGuarderia2.getFechaIngreso(),
-//                solicitudGuarderia2.getDiasEstadia()));
-//
-//        RepositorioSolicitudGuarderia repositorioSolicitudGuarderia = Mockito.mock(RepositorioSolicitudGuarderia.class);
-//        DaoSolicitudGuarderia daoSolicitudGuarderia = Mockito.mock(DaoSolicitudGuarderia.class);
-//        ServicioActualizarSolicitudGuarderia servicioActualizarSolicitudGuarderia = new ServicioActualizarSolicitudGuarderia(repositorioSolicitudGuarderia, daoSolicitudGuarderia);
-//
-//        Facturacion facturacion = servicioActualizarSolicitudGuarderia.calcularDescuentosCostosFacturacion(solicitudGuarderia2,dtoSolicitudesGuarderia);
-//
-//        Mockito.when(repositorioSolicitudGuarderia.existePorId(Mockito.anyLong())).thenReturn(true);
-//
-//        //- assert
-//        assertEquals(facturacionDefault,facturacion);
-////        Mockito.verify(repositorioSolicitudGuarderia, Mockito.times(1)).actualizar(solicitudGuarderia);
-//    }
 }

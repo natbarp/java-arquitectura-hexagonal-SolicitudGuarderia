@@ -23,13 +23,6 @@ public interface RepositorioSolicitudGuarderia {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un usuario con un nombre
-     * @param name
-     * @return si existe o no
-     */
-    boolean existe(String name);
-
-    /**
      * Permite validar si existe un usuario con un nombre excluyendo un id
      * @return si existe o no
      */

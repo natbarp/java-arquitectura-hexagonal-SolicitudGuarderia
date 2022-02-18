@@ -47,14 +47,6 @@ public class RepositorioSolicitudGuarderiaMysql implements RepositorioSolicitudG
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
-    @Override
-    public boolean existe(String name) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("nombrePropietario", name);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
-    }
-
     public Long totalDeRegistros(Long id){
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idPropietario", id);
