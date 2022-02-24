@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
-@RequestMapping("/listarRegistrosGuarderia")
+@RequestMapping("/registro")
 @Api(tags={"Controlador consulta usuario"})
 @CrossOrigin(origins = "*")
 public class ConsultaControladorSolicitudGuarderia {
@@ -24,13 +24,13 @@ public class ConsultaControladorSolicitudGuarderia {
         this.manejadorListarSolicitudGuarderia = manejadorListarSolicitudGuarderia;
     }
 
-    @GetMapping
+    @GetMapping("/listar")
     @ApiOperation("Listar Usuarios")
     public List<DtoSolicitudGuarderia> listar() {
         return this.manejadorListarSolicitudGuarderia.ejecutar();
     }
 
-    @GetMapping(value="/{idPropietario}")
+    @GetMapping(value="listar/{idPropietario}")
     @ApiOperation("Listar Usuarios por id")
     public List<DtoSolicitudGuarderia> listar(@PathVariable Long idPropietario) {
         return this.manejadorListarSolicitudGuarderia.ejecutarPorIdPropietario(idPropietario);
